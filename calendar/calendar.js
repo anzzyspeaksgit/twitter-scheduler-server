@@ -1,4 +1,4 @@
-const API_URL = 'https://twiterx-production.up.railway.app';
+const API_URL = 'https://twitter-scheduler-server-production-e94d.up.railway.app';
 let currentDate = new Date();
 let scheduledTweets = [];
 let currentView = 'calendar';

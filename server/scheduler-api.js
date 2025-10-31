@@ -938,7 +938,7 @@ app.get('/api/twitter-status', async (req, res) => {
 cron.schedule('*/5 * * * *', async () => {
   console.log('💓 Keep-alive ping to prevent Railway sleeping...');
   try {
-    const response = await fetch('https://twiterx-production.up.railway.app/api/health');
+    const response = await fetch('https://twitter-scheduler-server-production-e94d.up.railway.app/api/health');
     console.log('✅ Keep-alive successful');
   } catch (error) {
     console.log('⚠️ Keep-alive failed:', error.message);

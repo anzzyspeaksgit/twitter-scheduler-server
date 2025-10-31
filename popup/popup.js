@@ -537,7 +537,7 @@ class TwitterRepostPopup {
       console.log('🤖 Generating AI paraphrase...');
 
       // Call the server's preview endpoint
-      const response = await fetch('https://twiterx-production.up.railway.app/api/preview-paraphrase', {
+      const response = await fetch('https://twitter-scheduler-server-production-e94d.up.railway.app/api/preview-paraphrase', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
