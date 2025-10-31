@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter Repost Assistant - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <header class="options-header">
+      <h1>🐦 Twitter Repost Assistant</h1>
+      <p>Configure your Twitter integration and scheduling preferences</p>
+    </header>
+
+    <div class="options-content">
+      <!-- Twitter Authentication -->
+      <section class="option-section">
+        <h2>Twitter Account</h2>
+        <div class="auth-status" id="authStatus">
+          <div class="loading">Checking authentication status...</div>
+        </div>
+        <div class="auth-actions">
+          <button id="connectBtn" class="btn primary" style="display: none;">
+            Connect Twitter Account
+          </button>
+          <button id="disconnectBtn" class="btn danger" style="display: none;">
+            Disconnect Account
+          </button>
+        </div>
+      </section>
+
+      <!-- Scheduling Preferences -->
+      <section class="option-section">
+        <h2>Smart Scheduling</h2>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="enableSmartScheduling" checked>
+            Enable smart scheduling recommendations
+          </label>
+          <p class="help-text">AI will suggest optimal posting times based on engagement patterns</p>
+        </div>
+
+        <div class="form-group">
+          <label for="timezone">Your Timezone</label>
+          <select id="timezone">
+            <option value="auto">Auto-detect</option>
+            <option value="UTC-12">UTC-12 (Baker Island)</option>
+            <option value="UTC-11">UTC-11 (American Samoa)</option>
+            <option value="UTC-10">UTC-10 (Hawaii)</option>
+            <option value="UTC-9">UTC-9 (Alaska)</option>
+            <option value="UTC-8">UTC-8 (Pacific Time)</option>
+            <option value="UTC-7">UTC-7 (Mountain Time)</option>
+            <option value="UTC-6">UTC-6 (Central Time)</option>
+            <option value="UTC-5">UTC-5 (Eastern Time)</option>
+            <option value="UTC-4">UTC-4 (Atlantic Time)</option>
+            <option value="UTC-3">UTC-3 (Brazil)</option>
+            <option value="UTC-2">UTC-2 (Mid-Atlantic)</option>
+            <option value="UTC-1">UTC-1 (Azores)</option>
+            <option value="UTC+0">UTC+0 (Greenwich)</option>
+            <option value="UTC+1">UTC+1 (Central Europe)</option>
+            <option value="UTC+2">UTC+2 (Eastern Europe)</option>
+            <option value="UTC+3">UTC+3 (Moscow)</option>
+            <option value="UTC+4">UTC+4 (Gulf)</option>
+            <option value="UTC+5">UTC+5 (Pakistan)</option>
+            <option value="UTC+5.5">UTC+5.5 (India)</option>
+            <option value="UTC+6">UTC+6 (Bangladesh)</option>
+            <option value="UTC+7">UTC+7 (Thailand)</option>
+            <option value="UTC+8">UTC+8 (China)</option>
+            <option value="UTC+9">UTC+9 (Japan)</option>
+            <option value="UTC+10">UTC+10 (Australia)</option>
+            <option value="UTC+11">UTC+11 (Solomon Islands)</option>
+            <option value="UTC+12">UTC+12 (New Zealand)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="postingFrequency">Maximum Posts Per Day</label>
+          <input type="number" id="postingFrequency" min="1" max="50" value="5">
+          <p class="help-text">Limit to avoid overwhelming your followers</p>
+        </div>
+      </section>
+
+      <!-- Content Preferences -->
+      <section class="option-section">
+        <h2>Content Settings</h2>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="autoAddHashtags" checked>
+            Automatically add relevant hashtags
+          </label>
+          <p class="help-text">AI will suggest hashtags based on tweet content</p>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="addAttribution" checked>
+            Add attribution to original posts
+          </label>
+          <p class="help-text">Include "via @username" when reposting</p>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="duplicateCheck" checked>
+            Check for duplicate content
+          </label>
+          <p class="help-text">Prevent posting similar content multiple times</p>
+        </div>
+      </section>
+
+      <!-- Notifications -->
+      <section class="option-section">
+        <h2>Notifications</h2>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="enableNotifications" checked>
+            Show desktop notifications
+          </label>
+          <p class="help-text">Get notified when tweets are posted or scheduled</p>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="soundNotifications" checked>
+            Play notification sound
+          </label>
+        </div>
+      </section>
+
+      <!-- Data Management -->
+      <section class="option-section">
+        <h2>Data Management</h2>
+        <div class="form-group">
+          <label for="dataRetention">Keep drafts for</label>
+          <select id="dataRetention">
+            <option value="7">7 days</option>
+            <option value="30" selected>30 days</option>
+            <option value="90">90 days</option>
+            <option value="365">1 year</option>
+            <option value="forever">Forever</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button id="clearDataBtn" class="btn danger">
+            Clear All Data
+          </button>
+          <p class="help-text">This will delete all drafts, scheduled tweets, and settings</p>
+        </div>
+      </section>
+
+      <!-- API Configuration -->
+      <section class="option-section">
+        <h2>Twitter API Configuration</h2>
+        <div class="api-setup-guide">
+          <h3>🔑 How to Get Your Twitter API Keys</h3>
+          <ol>
+            <li>Go to <a href="https://developer.twitter.com" target="_blank">developer.twitter.com</a></li>
+            <li>Create a new app or use an existing one</li>
+            <li>Go to your app's "Keys and tokens" section</li>
+            <li>Copy the credentials below</li>
+          </ol>
+        </div>
+
+        <div class="form-group">
+          <label for="clientId">OAuth 2.0 Client ID</label>
+          <input type="text" id="clientId" placeholder="Enter your OAuth 2.0 Client ID">
+          <p class="help-text">Required for posting tweets</p>
+        </div>
+
+        <div class="form-group">
+          <label for="clientSecret">OAuth 2.0 Client Secret</label>
+          <input type="password" id="clientSecret" placeholder="Enter your OAuth 2.0 Client Secret">
+          <p class="help-text">Keep this secret and secure</p>
+        </div>
+
+        <div class="form-group">
+          <label for="apiKey">API Key (Consumer Key)</label>
+          <input type="text" id="apiKey" placeholder="Enter your API Key">
+          <p class="help-text">Optional - for additional API access</p>
+        </div>
+
+        <div class="form-group">
+          <label for="apiSecret">API Secret (Consumer Secret)</label>
+          <input type="password" id="apiSecret" placeholder="Enter your API Secret">
+        </div>
+
+        <div class="form-group">
+          <button id="testConnectionBtn" class="btn secondary">
+            Test Connection
+          </button>
+          <div id="connectionStatus" class="connection-status"></div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="options-footer">
+      <div class="save-actions">
+        <button id="saveBtn" class="btn primary">Save Settings</button>
+        <button id="resetBtn" class="btn secondary">Reset to Defaults</button>
+      </div>
+      <div class="version-info">
+        <p>Version 1.0.0 | <a href="#" id="helpLink">Help & Support</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

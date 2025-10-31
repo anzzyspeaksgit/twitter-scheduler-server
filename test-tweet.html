@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Twitter Post</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        .tweet {
+            background: #16181c;
+            border: 1px solid #2f3336;
+            border-radius: 16px;
+            padding: 16px;
+            margin: 16px 0;
+            max-width: 600px;
+        }
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .tweet-text {
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 12px;
+        }
+        .tweet-actions {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+        }
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #71767b;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+        .action-button:hover {
+            background-color: rgba(29, 155, 240, 0.1);
+            color: #1d9bf0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Twitter Posts</h1>
+    <p>This page simulates Twitter posts to test the extension. Open the browser console to see debug logs.</p>
+    
+    <div class="tweet" data-testid="tweet" role="article">
+        <div class="tweet-header">
+            <div data-testid="User-Name">Test User</div>
+            <div>·</div>
+            <time datetime="2024-01-01T12:00:00Z">2h</time>
+        </div>
+        <div class="tweet-text" data-testid="tweetText" lang="en">
+            This is a test tweet to verify the extension is working correctly. The save button should appear in the actions below.
+        </div>
+        <div class="tweet-actions" role="group">
+            <div class="action-button" data-testid="reply">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067A8.005 8.005 0 0 1 1.751 10z"/>
+                </svg>
+                <span>Reply</span>
+            </div>
+            <div class="action-button" data-testid="retweet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.791-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.791 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"/>
+                </svg>
+                <span>Retweet</span>
+            </div>
+            <div class="action-button" data-testid="like">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"/>
+                </svg>
+                <span>Like</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tweet" data-testid="tweet" role="article">
+        <div class="tweet-header">
+            <div data-testid="User-Name">Another User</div>
+            <div>·</div>
+            <time datetime="2024-01-01T10:00:00Z">4h</time>
+        </div>
+        <div class="tweet-text" data-testid="tweetText" lang="en">
+            Another test tweet with different content. This should also get a save button.
+        </div>
+        <div class="tweet-actions" role="group">
+            <div class="action-button" data-testid="reply">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067A8.005 8.005 0 0 1 1.751 10z"/>
+                </svg>
+                <span>Reply</span>
+            </div>
+            <div class="action-button" data-testid="retweet">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.791-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.791 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"/>
+                </svg>
+                <span>Retweet</span>
+            </div>
+            <div class="action-button" data-testid="like">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"/>
+                </svg>
+                <span>Like</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('Test page loaded. Extension should inject save buttons into the tweets above.');
+        console.log('Check the browser console for extension debug logs.');
+    </script>
+</body>
+</html>

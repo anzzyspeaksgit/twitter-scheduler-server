@@ -1,0 +1,13 @@
+{
+  "name": "twitter-repost-assistant",
+  "version": "1.0.0",
+  "description": "Twitter automation with Chrome extension and 24/7 API server",
+  "scripts": {
+    "start": "cd server && npm install && npm start",
+    "install-server": "cd server && npm install",
+    "dev": "cd server && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

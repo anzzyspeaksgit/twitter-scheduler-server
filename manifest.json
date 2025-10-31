@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Repost Assistant",
+  "version": "1.0.0",
+  "description": "Save and schedule Twitter posts with one click",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "identity",
+    "alarms",
+    "notifications",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://twitter.com/*",
+    "https://x.com/*",
+    "https://api.twitter.com/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*", "https://x.com/*"],
+      "js": ["content/inject.js"],
+      "css": ["content/styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content/*", "popup/*", "options/*", "calendar/*"],
+      "matches": ["https://twitter.com/*", "https://x.com/*", "<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Twitter Repost Assistant"
+  },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
